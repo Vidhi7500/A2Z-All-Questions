@@ -1,0 +1,53 @@
+METHOD 1:
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int n;
+    cin>>n;
+    vector<int> a;
+    for(int i=0;i<n;i++){
+        int x;
+        cin>>x;
+        a.push_back(x);
+    }
+    int maxi=INT_MIN;
+    for(int i=0;i<n;i++){
+        if(a[i]>maxi){
+            maxi=a[i];
+        }
+    }
+    cout<<maxi<<endl;
+    return 0;
+}
+
+T.C. = O(n)
+S.C. = O(n)
+
+METHOD 2:
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int n;
+    cin>>n;
+    vector<int> a;
+    int maxi=INT_MIN;
+    for(int i=0;i<n;i++){
+        int x;
+        cin>>x;
+        a.push_back(x);
+        if(a[i]>maxi){
+            maxi=a[i];
+        }
+    }
+    cout<<maxi<<endl;
+    return 0;
+}
+
+T.C. = O(n)
+S.C. = O(1)
