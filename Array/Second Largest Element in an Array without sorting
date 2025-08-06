@@ -1,0 +1,59 @@
+METHOD 1:
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int n;
+    cin>>n;
+    vector<int> a;
+    int maxi=INT_MIN;
+    for(int i=0;i<n;i++){
+        int x;
+        cin>>x;
+        a.push_back(x);
+        if(a[i]>maxi){
+            maxi=a[i];
+        }
+    }
+    int sec_maxi=INT_MIN;
+    for(int i=0;i<n;i++){
+        if(a[i]>sec_maxi && a[i]!=maxi) sec_maxi=a[i];
+    }
+    if(sec_maxi!=INT_MIN) cout<<sec_maxi<<endl;
+    else cout<<"-1"<<endl; 
+    return 0;
+}
+
+Time Complexity: O(n)
+Space Complexity: O(n)
+
+METHOD 2: 
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int n;
+    cin>>n;
+    vector<int> a;
+    int maxi=INT_MIN;
+    int sec_maxi=INT_MIN;
+    for(int i=0;i<n;i++){
+        int x;
+        cin>>x;
+        a.push_back(x);
+        if(a[i]>maxi){
+            sec_maxi=maxi;
+            maxi=a[i];
+        } else if(x>sec_maxi && x!=maxi) sec_maxi=x;
+    }
+    if(sec_maxi!=INT_MIN) cout<<sec_maxi<<endl;
+    else cout<<"-1"<<endl; 
+    return 0;
+}
+
+Time Complexity: O(n)
+Space Complexity: O(1)
