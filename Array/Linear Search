@@ -1,0 +1,32 @@
+METHOD 1:
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int solve(vector<int>& v, int target){
+    int n=v.size();
+    for(int i=0;i<n;i++){
+        if(v[i]==target) return i;
+    }
+    return -1;
+}
+
+int main()
+{
+    int n;
+    cin>>n;
+    vector<int> v;
+    for(int i=0;i<n;i++){
+        int x;
+        cin>>x;
+        v.push_back(x);
+    }
+    int target;
+    cin>>target;
+    int ans = solve(v, target);
+    cout<<ans<<endl;
+    return 0;
+}
+
+T.C. = O(n)
+S.C. = O(n)
