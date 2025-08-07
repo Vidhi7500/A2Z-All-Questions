@@ -18,3 +18,20 @@ METHOD 1:
 
 T.C. = O(n)
 S.C. = O(n)
+
+METHOD 2: MOORE VOTING ALGORITHM
+
+    int majorityElement(vector<int>& nums) {
+        int count=0;
+        int candidate=0;
+        for(int num: nums){
+            if(count==0) candidate=num;
+            if(num == candidate) count++;
+            else count--;
+        }
+        return candidate;
+    }
+
+T.C. = O(n)
+S.C. = O(1)
+
