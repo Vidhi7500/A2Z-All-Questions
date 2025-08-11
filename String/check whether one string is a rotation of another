@@ -1,0 +1,14 @@
+METHOD 1:
+
+class Solution {
+public:
+    bool rotateString(string s, string goal) {
+        string final = s+s;
+        if(s.length()!=goal.length())  return false;
+        if(final.find(goal)!=string::npos) return true;
+        return false;
+    }
+};
+
+T.C. = O(n^2) => worst case &&&&&&&&& O(n) => average case
+S.C. = O(1)
