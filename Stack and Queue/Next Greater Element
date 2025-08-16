@@ -1,0 +1,39 @@
+METHOD 1:
+
+class Solution {
+public:
+    unordered_map<int, int> nextGreater(vector<int>& nums2){
+        stack<int> st;
+        int n=nums2.size();
+        unordered_map<int, int> mp;
+        for(int i=n-1;i>=0;i--){
+            
+                while(!st.empty() && st.top()<nums2[i]){
+                    st.pop();
+                }
+                if(st.empty()){
+                    mp[nums2[i]]=-1;
+                } else{
+                    mp[nums2[i]]=st.top();
+                }
+            st.push(nums2[i]);
+        }
+        return mp;
+    }
+    vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
+        int n=nums1.size();
+        unordered_map<int, int> search = nextGreater(nums2);
+        vector<int> ans;
+        for(int i=0;i<n;i++){
+            if(search.find(nums1[i])!=search.end()){
+                ans.push_back(search[nums1[i]]);
+            }
+        }
+        return ans;
+    }
+};
+
+T.C. = O(n1+n2)
+S.C. = O(n1+n2)
+
+n1 and n2 are the sizes of nums1 and nums2.
