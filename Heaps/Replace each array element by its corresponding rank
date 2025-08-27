@@ -1,0 +1,29 @@
+METHOD 1:
+
+class Solution {
+  public:
+
+    vector<int> replaceWithRank(vector<int> &arr, int N) {
+        priority_queue<int, vector<int>, greater<int>> pq;
+        for(int i=0;i<N;i++) pq.push(arr[i]);
+        unordered_map<int, int> mp;
+        int cnt=1;
+        while(!pq.empty()){
+            if(mp.find(pq.top())==mp.end()){
+                mp[pq.top()]=cnt;
+                cnt++;
+            }
+            pq.pop();
+        }
+        vector<int> ans;
+        for(int i=0;i<N;i++){
+            if(mp.find(arr[i])!=mp.end()){
+                ans.push_back(mp[arr[i]]);
+            }
+        }
+        return ans;
+    }
+};
+
+T.C. = O(N log N)
+S.C. = O(N)
