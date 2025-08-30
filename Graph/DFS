@@ -1,0 +1,26 @@
+METHOD 1:
+
+class Solution {
+  public:
+    void dfs(int vis[], vector<vector<int>>& adj, int node, vector<int>& ls){
+        vis[node]=1;
+        ls.push_back(node);
+        for(auto it: adj[node]){
+            if(!vis[it]){
+                dfs(vis, adj, it, ls);
+            }
+        }
+    } 
+    vector<int> dfs(vector<vector<int>>& adj) {
+        // Code here
+        int V = adj.size();
+        int vis[V]={0};
+        vector<int> ls;
+        int start=0;
+        dfs(vis, adj, start, ls);
+        return ls;
+    }
+};
+
+Time Complexity: O(V + E)
+Space Complexity: O(V)
